@@ -1,0 +1,52 @@
+apply plugin: 'base'
+apply plugin: 'maven'
+
+version = '1.0'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'http://repo.springsource.org/plugins-release' }
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:0.6.1'
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.1'
+    }
+}
+
+ext {
+    javaVersion = 1.8
+    slf4jVersion = '1.7.5'
+}
+
+version = '1.0'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'propdeps-eclipse'
+
+    sourceCompatibility = rootProject.ext.javaVersion
+    targetCompatibility = rootProject.ext.javaVersion
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile "org.slf4j:jcl-over-slf4j:${rootProject.ext.slf4jVersion}"
+        compile "org.slf4j:log4j-over-slf4j:${rootProject.ext.slf4jVersion}"
+        compile "org.slf4j:slf4j-api:${rootProject.ext.slf4jVersion}"
+
+        testCompile "junit:junit:4.11"
+        testCompile 'org.mockito:mockito-all:1.9.5'
+        testCompile 'org.hamcrest:hamcrest-all:1.3'
+    }
+}
