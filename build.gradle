@@ -11,8 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:0.6.1'
-        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.1'
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
     }
 }
 
