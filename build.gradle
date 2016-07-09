@@ -40,10 +40,15 @@ allprojects {
     }
 
     dependencies {
+        compile 'org.slf4j:slf4j-api:1.7.6'
+        compile 'org.slf4j:jcl-over-slf4j:1.7.6'
+        compile 'ch.qos.logback:logback-classic:1.0.13'
+        compile 'ch.qos.logback:logback-core:1.0.13'
         compile "org.slf4j:jcl-over-slf4j:${rootProject.ext.slf4jVersion}"
         compile "org.slf4j:log4j-over-slf4j:${rootProject.ext.slf4jVersion}"
         compile "org.slf4j:slf4j-api:${rootProject.ext.slf4jVersion}"
 
+        provided 'org.projectlombok:lombok:1.16.6'
         testCompile "junit:junit:4.11"
         testCompile 'org.mockito:mockito-all:1.9.5'
         testCompile 'org.hamcrest:hamcrest-all:1.3'
